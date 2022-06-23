@@ -9,6 +9,7 @@
 #include "utils.h"
 using namespace std;
 namespace wisdom{
+	//Principal Component Analysis using qb library
 	void PCA::m1(vector<vector<double>> Data,vector<vector<double>> &result){
 		vector<double> testData;
 		vectods(Data,testData);
@@ -20,6 +21,7 @@ namespace wisdom{
 		qbMatrix2<double> newX = (V.Transpose() * X.Transpose()).Transpose();
 		dstovec(newX,result);
 	}
+	//Convert 2D vector "Data" to 1D vector "testData"
 	void vectods(vector<vector<double>> &Data,vector<double> &testData){
 		int r=Data.size();
 		int c=Data[0].size();
@@ -28,6 +30,7 @@ namespace wisdom{
 				testData.push_back(Data[i][j]);
 		}
 	}
+	//Convert qbMatrix2 to 2D vector i.e result
 	void dstovec(qbMatrix2<double> &newX,vector<vector<double>> &result){
 		int r=result.size();
 		for(int i=0;i<r;i++){
