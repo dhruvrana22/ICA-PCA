@@ -9,7 +9,7 @@ namespace wisdom{
 		public:
 		int nrSamples=20000;
 		int nrComp=16;
-		vector<vector<double>> m1(vector<vector<double>> Data);
+		void m1(vector<vector<double>> Data,vector<vector<double>> &result);
 	};
 	void vectods(vector<vector<double>> &Data,vector<double> &testData);
 	void dstovec(qbMatrix2<double> &newX,vector<vector<double>> &result);
