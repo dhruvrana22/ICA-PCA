@@ -10,7 +10,9 @@ using namespace itpp;
 namespace wisdom{
 	class ICA{
 		public:
+		//numbers of samples in csv file
 		int nrSamples = 19000; 
+		//Number of Independent Components
 		int nrIC = 4;
 		void m2(vector<vector<double>> Data,vector<vector<double>> &res);
 	};
