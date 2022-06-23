@@ -9,7 +9,7 @@
 #include "utils.h"
 using namespace std;
 namespace wisdom{
-	void PCA::m1(vector<vector<double>> Data){
+	vector<vector<double>> PCA::m1(vector<vector<double>> Data){
 		vector<double> testData;
 		vectods(Data,testData);
 		qbMatrix2<double> X (nrSamples, nrComp,testData);
@@ -20,7 +20,7 @@ namespace wisdom{
 		qbMatrix2<double> newX = (V.Transpose() * X.Transpose()).Transpose();
 		vector<vector<double>> result(nrSamples,vector<double>(2));
 		dstovec(newX,result);
-		saveData1("Result1.csv",result);
+		return result;
 	}
 	void vectods(vector<vector<double>> &Data,vector<double> &testData){
 		int r=Data.size();
