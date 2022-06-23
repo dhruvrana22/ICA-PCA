@@ -13,13 +13,14 @@ using namespace wisdom;
 int main(){
 	int nrSamples=20000,nrComp=16;
 	vector<vector<double>> Data(nrSamples,vector<double>(nrComp));
-	vector<vector<double>> result;
 	readData("eegData.csv",Data,nrSamples,nrComp);
 	wisdom::PCA obj1;
-	result=obj1.m1(Data);
-	saveData1("Result1.csv",result);
+	vector<vector<double>> result1(obj1.nrSamples,vector<double>(2));
+	obj1.m1(Data,result1);
+	saveData1("Result1.csv",result1);
 	wisdom::ICA obj2;
-	result=obj2.m2(Data);
-	saveData1("Result2.csv",result);
+	vector<vector<double>> result2(obj2.nrSamples, vector<double>(obj2.nrIC));
+	obj2.m2(Data,result2);
+	saveData1("Result2.csv",result2);
 	return 0;
 }
