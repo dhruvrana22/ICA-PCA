@@ -12,7 +12,7 @@ namespace wisdom{
 		public:
 		int nrSamples = 19000; 
 		int nrIC = 4;
-		void m2(vector<vector<double>> Data);
+		vector<vector<double>> m2(vector<vector<double>> Data);
 	};
 	void vectods(vector<vector<double>> &Data,mat X);
 	void dstovec(mat b,vector<vector<double>> &res);
