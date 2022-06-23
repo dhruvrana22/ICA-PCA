@@ -8,7 +8,7 @@ using namespace itpp;
 using namespace std;
 
 namespace wisdom{
-	void ICA::m2(vector<vector<double>> Data){
+	vector<vector<double>> ICA::m2(vector<vector<double>> Data){
 		float tmp = 0.0;
 		mat X = zeros(nrIC,nrSamples);
 		vectods(Data,X);
@@ -21,11 +21,11 @@ namespace wisdom{
 			my_fastica.get_separating_matrix();
 			mat b=my_fastica.get_independent_components();
 			dstovec(b,res);
-			saveData1("Result2.csv",res);
 		}
 		else{
 			cout << "Algorithm failed" << endl;
 		}
+		return res;
 	}
 	void vectods(vector<vector<double>> &Data,mat X){
 		int c=X.rows();
