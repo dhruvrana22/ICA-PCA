@@ -9,12 +9,13 @@
 #include <fstream>
 #include "utils.h"
 using namespace std;
-
+//Read data from a csv file "name" to 2D vector
 void readData(string name,vector<vector<double>> &Data,int rows,int cols){
 	string rowData,number;
 	stringstream rowDataStream;
 	int numRows = 0;
 	int numCols = 0;
+	//Open a file "name"
 	ifstream inputFile(name);
 	if (inputFile.is_open()){		
 		while (!inputFile.eof()){
@@ -23,8 +24,10 @@ void readData(string name,vector<vector<double>> &Data,int rows,int cols){
 			rowDataStream.str(rowData);
 			numCols = 0;
 			while (rowDataStream.good()){
+				//Separate a rowData using ','
 				getline(rowDataStream,number, ',');
 				if (!number.empty()) {
+					//Coverts string to double
 					double v=stod(number);
 					Data[numRows][numCols]=v;
 				}
@@ -39,7 +42,7 @@ void readData(string name,vector<vector<double>> &Data,int rows,int cols){
 		inputFile.close();
 	}
 }
-
+//Save data from a 2D vector to a csv file "name"
 void saveData1(string name,vector<vector<double>> &result){
 	ofstream outputFile(name);
 	int r=result.size();
