@@ -8,14 +8,13 @@ using namespace itpp;
 using namespace std;
 
 namespace wisdom{
-	vector<vector<double>> ICA::m2(vector<vector<double>> Data){
+	void ICA::m2(vector<vector<double>> Data,vector<vector<double>> &res){
 		float tmp = 0.0;
 		mat X = zeros(nrIC,nrSamples);
 		vectods(Data,X);
 		Fast_ICA my_fastica(X);
 		my_fastica.set_nrof_independent_components(nrIC);
 		bool result = my_fastica.separate();
-		vector<vector<double>> res(nrSamples, vector<double>(nrIC));
 		if (result){
 			my_fastica.get_mixing_matrix();
 			my_fastica.get_separating_matrix();
@@ -23,9 +22,8 @@ namespace wisdom{
 			dstovec(b,res);
 		}
 		else{
-			cout << "Algorithm failed" << endl;
+			cout << "ICA:Algorithm failed" << endl;
 		}
-		return res;
 	}
 	void vectods(vector<vector<double>> &Data,mat X){
 		int c=X.rows();
