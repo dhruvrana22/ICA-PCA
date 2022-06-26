@@ -31,7 +31,7 @@ namespace wisdom{
 		}
 	}
 	//Convert 2D vector to mat
-	void vectods(vector<vector<double>> &Data,mat X){
+	void vectods(vector<vector<double>> &Data,mat &X){
 		int c=X.rows();
 		int r=X.cols();
 		for (int i = 0; i < r; i++){
