@@ -16,7 +16,7 @@ namespace wisdom{
 		int nrIC = 4;
 		void m2(vector<vector<double>> Data,vector<vector<double>> &res);
 	};
-	void vectods(vector<vector<double>> &Data,mat X);
+	void vectods(vector<vector<double>> &Data,mat &X);
 	void dstovec(mat b,vector<vector<double>> &res);
 }
 #endif
